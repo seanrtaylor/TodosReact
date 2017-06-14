@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import TodoItem from './todos_item';
-import { completeTodo } from '../actions/index';
+import { completeTodo, deleteTodo, editTodo, filterTodo } from '../actions/index';
 
 class TodoList extends Component {
 
@@ -13,11 +13,15 @@ class TodoList extends Component {
 
   renderTodo(singleTodo) {
     return (
-      <TodoItem
-        key={singleTodo.id}
-        todo={singleTodo}
-        completeTodo={this.props.completeTodo}
-      />
+      (this.props.filters != singleTodo.status) && (
+        <TodoItem
+          key={singleTodo.id}
+          todo={singleTodo}
+          completeTodo={this.props.completeTodo}
+          deleteTodo={this.props.deleteTodo}
+          editTodo={this.props.editTodo}
+        />
+      )
     );
   }
 
@@ -39,12 +43,12 @@ class TodoList extends Component {
   }
 }
 
-function mapStateToProps({ todos }){
-  return { todos };
+function mapStateToProps({ todos, filters }){
+  return { todos, filters };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ completeTodo }, dispatch);
+  return bindActionCreators({ completeTodo, deleteTodo, editTodo, filterTodo }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

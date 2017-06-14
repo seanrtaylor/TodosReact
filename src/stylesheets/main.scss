@@ -22,3 +22,17 @@
 .input-group {
   margin: 20px 0px;
 }
+
+.breadcrumb {
+  .single {
+    &:hover {
+      cursor:pointer;
+      }
+  }
+}
+
+.styled-textarea {
+  width: 300px;
+  height: 28px;
+  resize: none;
+}

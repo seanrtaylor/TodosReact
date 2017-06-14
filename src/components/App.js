@@ -3,6 +3,7 @@ import '../stylesheets/main.scss';
 import TodosNew from '../containers/todos_new'
 import TodoList from '../containers/todos_list'
 import TodoItem from '../containers/todos_item'
+import TodosFilter from '../containers/todos_filter'
 
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
       <div className='container'>
         {this.props.children}
         <TodosNew />
+        <TodosFilter />
         <TodoList />
       </div>
     );
