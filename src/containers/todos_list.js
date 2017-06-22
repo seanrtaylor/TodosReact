@@ -2,27 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import TodoItem from './todos_item';
+import { store } from '../store';
 import { completeTodo, deleteTodo, editTodo, filterTodo } from '../actions/index';
 
 class TodoList extends Component {
 
   constructor(props) {
       super(props);
-      this.renderTodo = this.renderTodo.bind(this);
-  }
 
-  renderTodo(singleTodo) {
-    return (
-      (this.props.filters != singleTodo.status) && (
-        <TodoItem
-          key={singleTodo.id}
-          todo={singleTodo}
-          completeTodo={this.props.completeTodo}
-          deleteTodo={this.props.deleteTodo}
-          editTodo={this.props.editTodo}
-        />
-      )
-    );
   }
 
   render() {
@@ -36,7 +23,19 @@ class TodoList extends Component {
           </tr>
         </thead>
         <tbody>
-          {this.props.todos.map(this.renderTodo)}
+          { this.props.todos.filter((todo) => {
+            return todo.status != store.getState().filters}).map((todo) => {
+              return (
+                <TodoItem
+                  key={todo.id}
+                  todo={todo}
+                  completeTodo={this.props.completeTodo}
+                  deleteTodo={this.props.deleteTodo}
+                  editTodo={this.props.editTodo}
+                />
+              );
+            })
+          }
         </tbody>
       </table>
     );
