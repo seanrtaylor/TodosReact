@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import '../stylesheets/main.scss';
-import TodosNew from '../containers/todos_new'
-import TodoList from '../containers/todos_list'
-import TodoItem from '../containers/todos_item'
-import TodosFilter from '../containers/todos_filter'
+import TodoNew from '../containers/todo_new'
+import TodoList from '../containers/todo_list'
+import TodoItem from '../components/todo_item'
+import TodoFilter from '../containers/todo_filter'
 
 
 class App extends Component {
@@ -16,8 +16,8 @@ class App extends Component {
     return (
       <div className='container'>
         {this.props.children}
-        <TodosNew />
-        <TodosFilter />
+        <TodoNew />
+        <TodoFilter />
         <TodoList />
       </div>
     );

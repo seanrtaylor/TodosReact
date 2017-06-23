@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { filterTodo } from '../actions/index';
 
-class TodosFilter extends Component {
+class TodoFilter extends Component {
 
   constructor(props) {
       super(props);
@@ -37,4 +37,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ filterTodo }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodosFilter);
+export default connect(mapStateToProps, mapDispatchToProps)(TodoFilter);

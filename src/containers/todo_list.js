@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import TodoItem from './todos_item';
+import TodoItem from '../components/todo_item';
 import { store } from '../store';
 import { completeTodo, deleteTodo, editTodo, filterTodo } from '../actions/index';
 
@@ -9,7 +9,6 @@ class TodoList extends Component {
 
   constructor(props) {
       super(props);
-
   }
 
   render() {

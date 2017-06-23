@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
-class TodoItem extends Component {
+export default class TodoItem extends Component {
     constructor(props) {
         super(props);
         this.completeTodo = this.completeTodo.bind(this);
@@ -29,9 +27,8 @@ class TodoItem extends Component {
       return (
         <tr>
           <td>{this.props.todo.id}</td>
-          <td
-            onChange={this.editTodo}>
-            <textarea defaultValue={this.props.todo.text}
+          <td>
+            <textarea onChange={this.editTodo} defaultValue={this.props.todo.text}
               className="styled-textarea">
             </textarea>
           </td>
@@ -47,5 +44,3 @@ class TodoItem extends Component {
         );
       }
   }
-
-export default connect()(TodoItem);

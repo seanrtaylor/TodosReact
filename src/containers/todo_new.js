@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addTodo } from '../actions/index'
 
-class TodosNew extends Component {
+class TodoNew extends Component {
   constructor(props){
     super(props);
 
@@ -46,4 +46,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ addTodo }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(TodosNew);
+export default connect(null, mapDispatchToProps)(TodoNew);
