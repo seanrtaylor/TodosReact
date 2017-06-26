@@ -11,7 +11,10 @@ class TodoList extends Component {
   static propTypes = {
     completeTodo: PropTypes.func,
     deleteTodo: PropTypes.func,
-    editTodo: PropTypes.func
+    editTodo: PropTypes.func,
+    handleEditTodo: PropTypes.func,
+    handleDeleteTodo: PropTypes.func,
+    handleCompleteTodo: PropTypes.func
   };
 
   constructor(props) {
