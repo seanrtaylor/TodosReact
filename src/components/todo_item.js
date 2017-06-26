@@ -5,7 +5,7 @@ export default class TodoItem extends Component {
         super(props);
         this.completeTodo = this.completeTodo.bind(this);
         this.deleteTodo = this.deleteTodo.bind(this);
-        this.editTodo = this.editTodo.bind(this);
+        //this.editTodo = this.editTodo.bind(this);
     }
 
     completeTodo(event) {
@@ -16,9 +16,9 @@ export default class TodoItem extends Component {
         this.props.deleteTodo(this.props.todo);
     }
 
-    editTodo(event) {
-        this.props.editTodo(event.target.value, this.props.todo);
-    }
+    // editTodo(event) {
+    //     this.props.editTodo(event.target.value, this.props.todo);
+    // }
 
     render() {
       let status = this.props.todo.status ? "complete" : "incomplete";
@@ -28,7 +28,7 @@ export default class TodoItem extends Component {
         <tr>
           <td>{this.props.todo.id}</td>
           <td>
-            <textarea onChange={this.editTodo} defaultValue={this.props.todo.text}
+            <textarea onChange={ this.props.handleEditTodo } defaultValue={this.props.todo.text}
               className="styled-textarea">
             </textarea>
           </td>

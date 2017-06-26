@@ -3,12 +3,24 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import TodoItem from '../components/todo_item';
 import { store } from '../store';
+import PropTypes from 'prop-types';
 import { completeTodo, deleteTodo, editTodo, filterTodo } from '../actions/index';
 
 class TodoList extends Component {
 
+  static propTypes = {
+    completeTodo: PropTypes.func,
+    deleteTodo: PropTypes.func,
+    editTodo: PropTypes.func
+  };
+
   constructor(props) {
       super(props);
+      this.handleEditTodo = this.handleEditTodo.bind(this);
+  }
+
+  handleEditTodo(event, todo){
+    this.props.editTodo(event.target.value, todo);
   }
 
   render() {
@@ -28,7 +40,7 @@ class TodoList extends Component {
                 <TodoItem
                   key={todo.id}
                   todo={todo}
-                  completeTodo={this.props.completeTodo}
+                  handleEditTodo={(event) => this.handleEditTodo(event, todo)}
                   deleteTodo={this.props.deleteTodo}
                   editTodo={this.props.editTodo}
                 />
