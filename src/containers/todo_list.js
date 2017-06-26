@@ -16,11 +16,18 @@ class TodoList extends Component {
 
   constructor(props) {
       super(props);
-      this.handleEditTodo = this.handleEditTodo.bind(this);
   }
 
   handleEditTodo(event, todo){
     this.props.editTodo(event.target.value, todo);
+  }
+
+  handleDeleteTodo(todo){
+    this.props.deleteTodo(todo);
+  }
+
+  handleCompleteTodo(todo){
+    this.props.completeTodo(todo);
   }
 
   render() {
@@ -41,8 +48,8 @@ class TodoList extends Component {
                   key={todo.id}
                   todo={todo}
                   handleEditTodo={(event) => this.handleEditTodo(event, todo)}
-                  deleteTodo={this.props.deleteTodo}
-                  editTodo={this.props.editTodo}
+                  handleDeleteTodo={() => this.handleDeleteTodo(todo)}
+                  handleCompleteTodo={() => this.handleCompleteTodo(todo)}
                 />
               );
             })
